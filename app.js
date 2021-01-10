@@ -14,7 +14,7 @@ app.post('/post-feedback', function (req, res) {
     
     dbConn.then(function(db) {
         
-        delete req.body._id; // for safety reasons
+        delete req.body._id;
         db.collection('feedbacks').insertOne(req.body);
     }); 
     
