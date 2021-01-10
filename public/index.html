@@ -10,21 +10,8 @@
         <link rel="stylesheet" href="/style/sty.css">
         
           
-        <script>  
-          function validateform(){  
-          var cardholder=document.myform.cardholder.value;  
-          var cardnumber=document.myform.cardnumber.value;  
-            
-          if(cardnumber.length!=16){  
-            alert("Password must be equal to 16 characters long.");  
-            return false;  
-            }
-          else if(cardnumber.match(/^[0-9]+$/) == null){  
-            alert("Credit card number must be all numbers.");  
-            return false;  
-            }
-
-          }  
+        <script src="/validate/val.js">  
+          
           </script> 
     
     </head>

@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "test",
+    "start": "node app.js"
   },
   "keywords": [],
   "author": "Mayank Maheshwari <mayank.maheshwari625@gmail.com> (https://mayankmaheshwar.github.io/)",
@@ -13,5 +14,8 @@
     "body-parser": "^1.19.0",
     "express": "^4.17.1",
     "mongodb": "^2.2.33"
+  },
+  "devDependencies": {
+    "jest": "^26.6.3"
   }
 }

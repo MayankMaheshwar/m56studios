@@ -1,28 +1,34 @@
-const cardname = document.getElementById('cardname')
-const ccnum = document.getElementById('ccnum')
-const form = document.getElementById('myform')
-const errorElement = document.getElementById('error')
+function validateform(){  
+  var expyear=document.myform.expyear.value;  
+  var cardnumber=document.myform.cardnumber.value; 
+  var cvv=document.myform.cvv.value;
+  
+    
+  if(cardnumber.length!=16){  
+    alert("Password must be equal to 16 characters long.");  
+    return false;  
+    }
+  else if(cardnumber.match(/^[0-9]+$/) == null){  
+    alert("Credit card number must be all numbers.");  
+    return false;  
+    }
+  else if(expyear.match(/^[0-9]+$/) == null){  
+    alert("Expiry year must be all numbers.");  
+    return false;  
+    }  
+  else if(expyear.length!=4){  
+    alert("Expiry year must be equal to 4 numbers.");  
+    return false;  
+    }
+  else if(cvv.match(/^[0-9]+$/) == null){  
+    alert("CVV number must be all numbers.");  
+    return false;  
+    }    
+  else if(cvv.length!=3){  
+    alert("CVV number must be equal to 3 numbers.");  
+    return false;  
+    }
 
-form.addEventListener('submit', (e) => {
-  let messages = []
-  if (cardname.value === '' || cardname.value == null) {
-    messages.push('Name is required')
-  }
+  }  
 
-  if (ccnum.value.length <= 6) {
-    messages.push('Password must be longer than 6 characters')
-  }
-
-  if (ccnum.value.length >= 20) {
-    messages.push('Password must be less than 20 characters')
-  }
-
-  if (password.value === 'password') {
-    messages.push('Password cannot be password')
-  }
-
-  if (messages.length > 0) {
-    e.preventDefault()
-    errorElement.innerText = messages.join(', ')
-  }
-})
+module.exports = validateform
