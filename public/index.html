@@ -5,20 +5,36 @@
         
         <script src="https://use.fontawesome.com/f1e0bf0cbc.js"></script>
 
-        <script>
-          var nameValue = document.getElementById("ccnum").value;
-          alert('name')
-        </script>
+        
         
         <link rel="stylesheet" href="/style/sty.css">
         
+          
+        <script>  
+          function validateform(){  
+          var cardholder=document.myform.cardholder.value;  
+          var cardnumber=document.myform.cardnumber.value;  
+            
+          if(cardnumber.length!=16){  
+            alert("Password must be equal to 16 characters long.");  
+            return false;  
+            }
+          else if(cardnumber.match(/^[0-9]+$/) == null){  
+            alert("Credit card number must be all numbers.");  
+            return false;  
+            }
+
+          }  
+          </script> 
+    
     </head>
     <body>
       <div class="row">
         <div class="col-75">
           <div class="container">
-            <form name ="myform" method="POST" action="/post-feedback">
-      
+            <div id="error"></div>
+            <form name="myform" method="POST" action="/post-feedback" onsubmit="return validateform()" >
+            
               <div class="row">
                 
       
@@ -32,9 +48,9 @@
                     <i class="fa fa-cc-discover" style="color:orange;"></i>
                   </div>
                   <label for="cname">Card Holder</label>
-                  <input type="text" id="cname" name="cardholder" placeholder="John More Doe" required />
+                  <input type="text" id="cname" name="cardholder" placeholder="John More Doe" required/>
                   <label for="ccnum">Credit card number</label>
-                  <input type="text" id="ccnum" name="cardnumber" placeholder="1111-2222-3333-4444" value="value" required />
+                  <input type="text" id="ccnum" name="cardnumber" placeholder="1111-2222-3333-4444" required />
                   <label for="expmonth">Exp Month</label>
                   <input type="text" id="expmonth" name="expmonth" placeholder="September" required />
       
@@ -54,13 +70,14 @@
               
               <input type="submit" value="Submit" class="btn">
             </form>
-            <a href="/view-feedbacks">View cards details</a>
+            <a href="/view-feedbacks">View all cards details</a>
           </div>
         </div>
       
         
       </div>
-            
+
+      
       
           
     </body>

@@ -11,11 +11,16 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.resolve(__dirname, 'public')));
 
 app.post('/post-feedback', function (req, res) {
+    
     dbConn.then(function(db) {
+        
         delete req.body._id; // for safety reasons
         db.collection('feedbacks').insertOne(req.body);
-    });    
-    res.send('success');
+    }); 
+    
+    arr = JSON.stringify(req.body);
+
+    res.send('Credit card details stored successfully');
 });
 
 app.get('/view-feedbacks',  function(req, res) {
